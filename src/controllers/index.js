@@ -4,8 +4,6 @@ import db from '../database/clientConnect.js';
 
 // tudo que usa prisma será trocado pelo client
 
-// tudo que usa prisma será trocado pelo client
-
 export const client = (db);
 
 export const clients = [];
@@ -32,15 +30,15 @@ export default {
     console.log(`ID inserido com sucesso ${user.id}`);
   },
 
-//  async get_controller(request, response) {
-//    try {
-//      const user = await client.user.findMany();
-//
-//      response.status(200).json(user);
-//    } catch (error) {
-//      return response.json(error);
-//    }
-//  },
+  async get_controller(request, response) {
+    try {
+      const user = await client.user.findMany();
+
+      response.status(200).json(user);
+    } catch (error) {
+      return response.json(error);
+    }
+  },
 //
 //  async put_controller(request, response) {
 //    const { id, name }  = request.body;

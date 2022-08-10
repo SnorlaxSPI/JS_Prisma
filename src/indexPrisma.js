@@ -2,9 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import clientConnectPrisma from './database/clientConnectPrisma.js';
-import { prismaFramework } from './services/verify.js';
 
-//import { log } from './middlewares/log.js';
+//import { log } from './services/log.js';
+
 import { router } from './routes/routesPrisma.js';
 
 dotenv.config();
@@ -20,7 +20,8 @@ const app = express();
 app.use(bodyParser.json());
 
 //app.use(log);
-app.use(prismaFramework);
+
+//app.use(prismaFramework);
 
 app.use(router);
 

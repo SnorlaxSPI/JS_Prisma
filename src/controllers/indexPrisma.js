@@ -5,20 +5,6 @@ const clients = [];
 
 const prisma = new PrismaClient();
 
-// middleware
-
-//export const prismaFramework = async(request, response, next) => {
-//  const { phone } = request.body;
-//
-//    let user = await prisma.user.findFirst({ where: { phone } });
-//  
-//    if (user) {
-//      return response.status(400).json({ error: "Já existe um usuário com este telefone" });
-//    }
-//
-//  return next();
-//  };
-
 export default {
 
   async post_controller(request, response) {
@@ -33,40 +19,35 @@ export default {
         phone,
       },
     });
-
+    
     response.status(201).json(user);
     console.log(`ID inserido com sucesso ${user.id}`);
   },
-
+ 
   async get_controller(request, response) {
     try {
       const user = await prisma.user.findMany();
 
       response.status(200).json(user);
+
     } catch (error) {
+
       return response.json(error);
     }
   },
 
-//  async put_controller(request, response) {
-//    const { id, name }  = request.body;
-//
-//    let user = await prisma.user.findFirst({ where: { id: uuidv4(id) } });
-//
-//    await requester.update({
-//      where: { 
-//        id
-//      },
-//      data: { name }
-//    });
+  async put_controller(request, response) {
+    const { id, name, phone } = request.body;
 
-//    if (user == undefined) {
-//      response.status(400).send();
-//    } else {
-//      user.name = nome;
-
-//      response.status(200).json(user);
-//  },
+    let user = await prisma.user.update({
+       where: { 
+        id,
+       },
+      data: { name, phone }
+     });   
+    
+    await response.status(200).json(user);
+  },
 
 //  delete_controller(request, response) {
 //    const { id } = request.params;
