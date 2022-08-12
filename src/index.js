@@ -1,16 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import clientConnect from './database/clientConnect.js';
+import client from './database/clientConnect.js';
 
-import { log } from './middlewares/log.js';
+//import { log } from './middlewares/log.js';
 import { router } from './routes/routes.js';
 
 dotenv.config();
 
-const client = clientConnect(process.env.DATABASE);
+const clients = client(process.env.DATABASE);
 
-client.connect()
+clients.connect()
 .then(() => console.log('📦📦 Database connected!'))
 
 const app = express();

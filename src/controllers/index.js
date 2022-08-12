@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 //import requester from '../services/req.js'
-import db from '../database/clientConnect.js';
+//import { client }  from '../database/clientConnect.js';
 
 // tudo que usa prisma será trocado pelo client
 
-export const client = (db);
+//const pool = new client();
 
 export const clients = [];
 
@@ -12,22 +12,22 @@ export default {
   async post_controller(request, response) {
     const { name, phone } = request.body;
 
-    let user = await client.user.findFirst({ where: { phone } });
+    let user = await pool.query('INSERT INTO Users');
 
     if (user) {
       return response.json({ error: "Já existe um usuário com este telefone" });
     }
 
-    user = await client.user.create({
-      data: {
-        id: uuidv4(),
-        name,
-        phone,
-      },
-    });
-
-    response.status(201).json(user);
-    console.log(`ID inserido com sucesso ${user.id}`);
+//    user = await client.user.create({
+//      data: {
+//        id: uuidv4(),
+//        name,
+//        phone,
+//      },
+//    });
+//
+//    response.status(201).json(user);
+//    console.log(`ID inserido com sucesso ${user.id}`);
   },
 
   async get_controller(request, response) {

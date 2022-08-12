@@ -1,8 +1,7 @@
 import pg from 'pg';
 
-export default () => {
+export default (database) => {
   let client 
-  
   if (process.env.DATABASE == 'postgres') {
     client = new pg.Client({
       user: 'postgres',
@@ -16,13 +15,8 @@ export default () => {
     })
   }
   return client;
-};
+}
 
-//  client.connect();
-//  client.query('select * from postgres')
-//  .then(results => {
-//    const result = results.row
-//    console.log(result);
-//  })
-//  .then(() => console.log('📦📦 Database connected!'))
-//
+//client.connect()
+//.then(() => console.log('📦📦 Database connected!'))
+

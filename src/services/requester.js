@@ -17,7 +17,7 @@ const noFramework = () => {
 //}
 
 export default {
-
+  
   async post_controller(request, response) {
     const { name, phone } = request.body;
 
