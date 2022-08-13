@@ -10,8 +10,22 @@ dotenv.config();
 
 const clients = client(process.env.DATABASE);
 
-clients.connect()
-.then(() => console.log('📦📦 Database connected!'))
+
+const connectionDatabase = async () => {
+  try {
+    await clients.connect();
+    console.log('📦📦 Database connected!');
+    const result = await clients.query('SELECT * FROM USER');
+    console.table(result.rows);
+  } 
+  catch (ex) {
+    console.log('Error connectionDatabase. Error: ' + ex);
+  }
+};
+
+connectionDatabase();
+
+
 
 const app = express();
 

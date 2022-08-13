@@ -17,6 +17,4 @@ export default (database) => {
   return client;
 }
 
-//client.connect()
-//.then(() => console.log('📦📦 Database connected!'))
 
