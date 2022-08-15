@@ -2,20 +2,21 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import client from './database/clientConnect.js';
+import { router } from './routes/routes.js';
 
 //import { log } from './middlewares/log.js';
-import { router } from './routes/routes.js';
 
 dotenv.config();
 
-const clients = client(process.env.DATABASE);
+//const clients = client(process.env.DATABASE);
 
+const clients = client();
 
 const connectionDatabase = async () => {
   try {
     await clients.connect();
     console.log('📦📦 Database connected!');
-    const result = await clients.query('SELECT * FROM USER');
+    const result = await clients.query('SELECT id, "name", "phone" FROM public."User"');
     console.table(result.rows);
   } 
   catch (ex) {
@@ -25,14 +26,13 @@ const connectionDatabase = async () => {
 
 connectionDatabase();
 
-
-
 const app = express();
 
 // o app.use na verdade está injetando um middleware
 app.use(bodyParser.json());
 
 //app.use(log);
+
 
 app.use(router);
 

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 //import requester from '../services/req.js'
 //import { client }  from '../database/clientConnect.js';
 
@@ -9,14 +8,14 @@ import { v4 as uuidv4 } from "uuid";
 export const clients = [];
 
 export default {
-  async post_controller(request, response) {
-    const { name, phone } = request.body;
-
-    let user = await pool.query('INSERT INTO Users');
-
-    if (user) {
-      return response.json({ error: "Já existe um usuário com este telefone" });
-    }
+//  async post_controller(request, response) {
+//    const { name, phone } = request.body;
+//
+//    let user = await pool.query('INSERT INTO Users');
+//
+//    if (user) {
+//      return response.json({ error: "Já existe um usuário com este telefone" });
+//    }
 
 //    user = await client.user.create({
 //      data: {
@@ -28,17 +27,17 @@ export default {
 //
 //    response.status(201).json(user);
 //    console.log(`ID inserido com sucesso ${user.id}`);
-  },
+// },
 
-  async get_controller(request, response) {
-    try {
-      const user = await client.user.findMany();
-
-      response.status(200).json(user);
-    } catch (error) {
-      return response.json(error);
-    }
-  },
+//  async get_controller(request, response) {
+//    try {
+//      const user = await client.user.findMany();
+//
+//      response.status(200).json(user);
+//    } catch (error) {
+//      return response.json(error);
+//    }
+//  },
 //
 //  async put_controller(request, response) {
 //    const { id, name }  = request.body;
