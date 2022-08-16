@@ -1,10 +1,11 @@
 import Router from 'express';
-import client from '../controllers/index.js'
+import client from '../services/requester.js';
+import { noFramework } from '../services/requester.js';
 
 const router = Router();
 
-//const { get_controller } = client;
-//router.get('/clients', client.get_controller);  
+const { get_controller } = client;
+router.get('/clients', noFramework);  
 
 //const { post_controller } = client;
 //router.post('/clients', client.post_controller);

@@ -8,23 +8,10 @@ import { router } from './routes/routes.js';
 
 dotenv.config();
 
-//const clients = client(process.env.DATABASE);
+const clients = client(process.env.DATABASE);
 
-const clients = client();
-
-const connectionDatabase = async () => {
-  try {
-    await clients.connect();
-    console.log('📦📦 Database connected!');
-    const result = await clients.query('SELECT id, "name", "phone" FROM public."User"');
-    console.table(result.rows);
-  } 
-  catch (ex) {
-    console.log('Error connectionDatabase. Error: ' + ex);
-  }
-};
-
-connectionDatabase();
+clients.connect()
+.then(() => console.log('📦📦 Database connected!'))
 
 const app = express();
 
