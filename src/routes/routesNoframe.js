@@ -1,11 +1,9 @@
 import Router from 'express';
-import client from '../services/servicesPrisma.js';
-import { noFramework } from '../services/servicesNoframe.js';
+import client from '../services/servicesNoframe.js';
 
 const router = Router();
 
-const { get_controller } = client;
-router.get('/clients', noFramework);  
+router.get('/clients', client.noFrame_get);  
 
 //const { post_controller } = client;
 //router.post('/clients', client.post_controller);

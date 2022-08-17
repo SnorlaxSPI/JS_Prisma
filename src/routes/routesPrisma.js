@@ -1,4 +1,4 @@
-import Router, { application } from 'express';
+import Router from 'express';
 import { prismaFramework } from '../services/verify.js';
 import client from '../services/servicesPrisma.js';
 
