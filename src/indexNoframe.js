@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import client from './database/clientConnect.js';
-import { router } from './routes/routes.js';
+import { router } from './routes/routesNoframe.js';
 
 //import { log } from './middlewares/log.js';
 

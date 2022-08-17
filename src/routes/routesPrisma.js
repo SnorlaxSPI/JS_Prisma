@@ -1,6 +1,6 @@
 import Router, { application } from 'express';
 import { prismaFramework } from '../services/verify.js';
-import client from '../services/requester.js';
+import client from '../services/servicesPrisma.js';
 
 const router = Router();
 

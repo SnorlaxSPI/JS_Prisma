@@ -1,6 +1,6 @@
 import Router from 'express';
-import client from '../services/requester.js';
-import { noFramework } from '../services/requester.js';
+import client from '../services/servicesPrisma.js';
+import { noFramework } from '../services/servicesNoframe.js';
 
 const router = Router();
 

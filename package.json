@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev:prisma": "nodemon src/indexPrisma.js",
-    "dev:noframe": "nodemon src/index.js",
+    "dev:noframe": "nodemon src/indexNoframe.js",
     "dev": "tsnd --inspect --respawn --ignore-watch node_modules --transpile-only src/index.ts"
   },
   "dependencies": {
