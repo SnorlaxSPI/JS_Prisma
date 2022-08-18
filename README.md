@@ -8,4 +8,4 @@
   - Routes -> Controller -> Service -> Repository
   - Repository (camada do banco de dados) <- Service <- Controller
 
-# Nunca faça testes de integração em banco de produção
+<b><i>** Nunca faça testes de integração em banco de produção</b></i>
